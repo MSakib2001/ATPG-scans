@@ -1,0 +1,100 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : b14
+Version: V-2023.12-SP5
+Date   : Tue Apr 29 13:59:40 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed32lvt_tt0p85v25c (File: /cae/apps/data/saed32_edk-2023/lib/stdcell_lvt/db_nldm/saed32lvt_tt0p85v25c.db)
+
+
+Operating Conditions: tt0p85v25c   Library: saed32lvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+b14                    16000             saed32lvt_tt0p85v25c
+b14_DW01_sub_0         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_1_DW01_add_5
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_1         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_2_DW01_add_6
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_2         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_3         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_3_DW01_add_7
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_4_DW01_add_8
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_4         8000              saed32lvt_tt0p85v25c
+b14_DW01_cmp6_0_DW01_cmp6_8
+                       8000              saed32lvt_tt0p85v25c
+b14_DW01_add_5_DW01_add_9
+                       8000              saed32lvt_tt0p85v25c
+b14_DW01_add_6_DW01_add_10
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_6         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_7_DW01_add_11
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_7         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_8_DW01_add_12
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_8         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_9         ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_9_DW01_add_13
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_10_DW01_add_14
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_10        8000              saed32lvt_tt0p85v25c
+b14_DW01_add_11_DW01_add_15
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_add_12_DW01_add_16
+                       ForQA             saed32lvt_tt0p85v25c
+b14_DW01_sub_11        8000              saed32lvt_tt0p85v25c
+
+
+Global Operating Voltage = 0.85 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =  86.5987 uW   (68%)
+  Net Switching Power  =  40.9622 uW   (32%)
+                         ---------
+Total Dynamic Power    = 127.5609 uW  (100%)
+
+Cell Leakage Power     =   2.9775 mW
+
+Information: report_power power group summary does not include estimated clock tree power. (PWR-789)
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)  i
+register           0.0000            0.0000            0.0000            0.0000  (   0.00%)
+sequential        42.5158            0.4812        4.7855e+08          521.5456  (  16.80%)
+combinational     44.0828           40.4810        2.4989e+09        2.5835e+03  (  83.20%)
+--------------------------------------------------------------------------------------------------
+Total             86.5986 uW        40.9622 uW     2.9775e+09 pW     3.1050e+03 uW
+1

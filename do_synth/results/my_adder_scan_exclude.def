@@ -1,0 +1,37 @@
+VERSION 5.5 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN my_adder ;
+
+SCANCHAINS 1 ;
+
+- chain1
++ START PIN SERIAL_IN
++ FLOATING dta_int_reg_0_ ( IN SI ) ( OUT Q )
+           dta_int_reg_1_ ( IN SI ) ( OUT Q )
+           dta_int_reg_2_ ( IN SI ) ( OUT Q )
+           dta_int_reg_3_ ( IN SI ) ( OUT Q )
+           dta_int_reg_4_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_0_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_1_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_2_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_3_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_4_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_5_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_6_ ( IN SI ) ( OUT Q )
+           dtb_int_reg_7_ ( IN SI ) ( OUT Q )
+           dto_reg_0_ ( IN SI ) ( OUT Q )
+           dto_reg_1_ ( IN SI ) ( OUT Q )
+           dto_reg_2_ ( IN SI ) ( OUT Q )
+           dto_reg_3_ ( IN SI ) ( OUT Q )
+           dto_reg_4_ ( IN SI ) ( OUT Q )
+           dto_reg_5_ ( IN SI ) ( OUT Q )
+           dto_reg_6_ ( IN SI ) ( OUT Q )
+           dto_reg_7_ ( IN SI ) ( OUT Q )
++ PARTITION clk_45_45
++ STOP PIN SERIAL_OUT ;
+
+END SCANCHAINS
+
+END DESIGN

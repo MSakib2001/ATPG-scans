@@ -1,0 +1,31 @@
+ 
+****************************************
+Report : area
+Design : b14
+Version: V-2023.12-SP5
+Date   : Tue Apr 29 13:59:39 2025
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    saed32lvt_tt0p85v25c (File: /cae/apps/data/saed32_edk-2023/lib/stdcell_lvt/db_nldm/saed32lvt_tt0p85v25c.db)
+
+Number of ports:                         2212
+Number of nets:                          5264
+Number of cells:                         2860
+Number of combinational cells:           2595
+Number of sequential cells:               215
+Number of macros/black boxes:               0
+Number of buf/inv:                        668
+Number of references:                      62
+
+Combinational area:               7498.264545
+Buf/Inv area:                      918.222278
+Noncombinational area:            1830.853418
+Macro/Black Box area:                0.000000
+Net Interconnect area:            2376.104027
+
+Total cell area:                  9329.117963
+Total area:                      11705.221990
+1

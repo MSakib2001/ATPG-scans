@@ -1,0 +1,98 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Expert(TM) in wire load mode
+// Version   : V-2023.12-SP5
+// Date      : Mon Apr  7 23:04:41 2025
+/////////////////////////////////////////////////////////////
+
+
+module my_adder_DW01_add_0 ( A, B, CI, SUM, CO );
+  input [7:0] A;
+  input [7:0] B;
+  output [7:0] SUM;
+  input CI;
+  output CO;
+
+  wire   [7:1] carry;
+
+  FADDX1_LVT U1_7 ( .A(A[7]), .B(B[7]), .CI(carry[7]), .S(SUM[7]) );
+  FADDX1_LVT U1_6 ( .A(A[6]), .B(B[6]), .CI(carry[6]), .CO(carry[7]), .S(
+        SUM[6]) );
+  FADDX1_LVT U1_5 ( .A(A[5]), .B(B[5]), .CI(carry[5]), .CO(carry[6]), .S(
+        SUM[5]) );
+  FADDX1_LVT U1_4 ( .A(A[4]), .B(B[4]), .CI(carry[4]), .CO(carry[5]), .S(
+        SUM[4]) );
+  FADDX1_LVT U1_3 ( .A(A[3]), .B(B[3]), .CI(carry[3]), .CO(carry[4]), .S(
+        SUM[3]) );
+  FADDX1_LVT U1_2 ( .A(A[2]), .B(B[2]), .CI(carry[2]), .CO(carry[3]), .S(
+        SUM[2]) );
+  FADDX1_LVT U1_1 ( .A(A[1]), .B(B[1]), .CI(carry[1]), .CO(carry[2]), .S(
+        SUM[1]) );
+  AND2X1_LVT U2 ( .A1(A[0]), .A2(B[0]), .Y(carry[1]) );
+  XOR2X1_LVT U1 ( .A1(A[0]), .A2(B[0]), .Y(SUM[0]) );
+endmodule
+
+
+module my_adder ( clk, rstn, dta, dtb, dto, SERIAL_IN, SCAN_EN, SERIAL_OUT, 
+        SERIAL_IN2, SCAN_EN2, SERIAL_OUT2 );
+  input [7:0] dta;
+  input [7:0] dtb;
+  output [7:0] dto;
+  input clk, rstn, SERIAL_IN, SCAN_EN, SERIAL_IN2, SCAN_EN2;
+  output SERIAL_OUT, SERIAL_OUT2;
+  wire   n41, n42, n43, n45, n46, n47, n48, n49, n50, n51, n52, n53, n54, n55,
+         n56;
+  wire   [40:33] n;
+
+  SDFFARX1_LVT dta_int_reg_7_ ( .D(dta[7]), .SI(n55), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n56) );
+  SDFFARX1_LVT dta_int_reg_6_ ( .D(dta[6]), .SI(n54), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n55) );
+  SDFFARX1_LVT dta_int_reg_5_ ( .D(dta[5]), .SI(n53), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n54) );
+  SDFFARX1_LVT dta_int_reg_4_ ( .D(dta[4]), .SI(n52), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n53) );
+  SDFFARX1_LVT dta_int_reg_3_ ( .D(dta[3]), .SI(n51), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n52) );
+  SDFFARX1_LVT dta_int_reg_2_ ( .D(dta[2]), .SI(n50), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n51) );
+  SDFFARX1_LVT dta_int_reg_1_ ( .D(dta[1]), .SI(n49), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n50) );
+  SDFFARX1_LVT dta_int_reg_0_ ( .D(dta[0]), .SI(SERIAL_IN), .SE(SCAN_EN2), 
+        .CLK(clk), .RSTB(rstn), .Q(n49) );
+  SDFFARX1_LVT dtb_int_reg_7_ ( .D(dtb[7]), .SI(n47), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n48) );
+  SDFFARX1_LVT dtb_int_reg_6_ ( .D(dtb[6]), .SI(n46), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n47) );
+  SDFFARX1_LVT dtb_int_reg_5_ ( .D(dtb[5]), .SI(n45), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n46) );
+  SDFFARX1_LVT dtb_int_reg_4_ ( .D(dtb[4]), .SI(SERIAL_IN2), .SE(SCAN_EN2), 
+        .CLK(clk), .RSTB(rstn), .Q(n45) );
+  SDFFARX1_LVT dtb_int_reg_3_ ( .D(dtb[3]), .SI(n43), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(SERIAL_OUT) );
+  SDFFARX1_LVT dtb_int_reg_2_ ( .D(dtb[2]), .SI(n42), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n43) );
+  SDFFARX1_LVT dtb_int_reg_1_ ( .D(dtb[1]), .SI(n41), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n42) );
+  SDFFARX1_LVT dtb_int_reg_0_ ( .D(dtb[0]), .SI(n56), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(n41) );
+  SDFFARX1_LVT dto_reg_0_ ( .D(n[33]), .SI(n48), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(dto[0]) );
+  SDFFARX1_LVT dto_reg_1_ ( .D(n[34]), .SI(dto[0]), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(dto[1]) );
+  SDFFARX1_LVT dto_reg_2_ ( .D(n[35]), .SI(dto[1]), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(dto[2]) );
+  SDFFARX1_LVT dto_reg_3_ ( .D(n[36]), .SI(dto[2]), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(dto[3]) );
+  SDFFARX1_LVT dto_reg_4_ ( .D(n[37]), .SI(dto[3]), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(dto[4]) );
+  SDFFARX1_LVT dto_reg_5_ ( .D(n[38]), .SI(dto[4]), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(dto[5]) );
+  SDFFARX1_LVT dto_reg_6_ ( .D(n[39]), .SI(dto[5]), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(dto[6]) );
+  SDFFARX1_LVT dto_reg_7_ ( .D(n[40]), .SI(dto[6]), .SE(SCAN_EN2), .CLK(clk), 
+        .RSTB(rstn), .Q(SERIAL_OUT2) );
+  my_adder_DW01_add_0 add_38 ( .A({n56, n55, n54, n53, n52, n51, n50, n49}), 
+        .B({n48, n47, n46, n45, SERIAL_OUT, n43, n42, n41}), .CI(1'b0), .SUM(n) );
+  NBUFFX2_LVT U31 ( .A(SERIAL_OUT2), .Y(dto[7]) );
+endmodule
+
